@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Autore
+ * Class Autor
  * 
  * @property string $codigo_autor
  * @property string $nombre_autor
@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
-class Autore extends Model
+class Autor extends Model
 {
 	protected $table = 'autores';
 	protected $primaryKey = 'codigo_autor';

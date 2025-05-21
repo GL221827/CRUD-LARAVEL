@@ -21,8 +21,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $descripcion
  * @property string|null $imagen
  * 
- * @property Autore $autore
- * @property Editoriale $editoriale
+ * @property Autor $autor
+ * @property Editorial $editorial
  * @property Genero $genero
  *
  * @package App\Models
@@ -51,12 +51,12 @@ class Libro extends Model
 		'imagen'
 	];
 
-	public function autore()
+	public function autor()
 	{
 		return $this->belongsTo(Autore::class, 'codigo_autor');
 	}
 
-	public function editoriale()
+	public function editorial()
 	{
 		return $this->belongsTo(Editoriale::class, 'codigo_editorial');
 	}

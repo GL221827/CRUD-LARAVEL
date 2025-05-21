@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Editoriale
+ * Class Editorial
  * 
  * @property string $codigo_editorial
  * @property string $nombre_editorial
@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
-class Editoriale extends Model
+class Editorial extends Model
 {
 	protected $table = 'editoriales';
 	protected $primaryKey = 'codigo_editorial';
