@@ -28,6 +28,7 @@ class Autor extends Model
 	public $timestamps = false;
 
 	protected $fillable = [
+		'codigo_autor',
 		'nombre_autor',
 		'nacionalidad'
 	];

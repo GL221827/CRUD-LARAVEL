@@ -1,22 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Detalles de autor con codigo {{$autor->codigo_autor}}</h1>
-    <table>
-        <tr>
-            <td>Nombre:</td>
-            <td>{{$autor->nombre_autor}}</td>
-        </tr>
-        <tr>
-            <td>Nacionalidad</td>
-            <td>{{$autor->nacionalidad}}</td>
-        </tr>
-        
+@extends('layouts.app')
+
+@section('title', 'Detalles del Autor')
+
+@section('content')
+    <h2>Detalles del autor</h2>
+
+    <table class="table table-bordered w-50">
+        <tbody>
+            <tr>
+                <th>Código</th>
+                <td>{{ $autor->codigo_autor }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ $autor->nombre_autor }}</td>
+            </tr>
+            <tr>
+                <th>Nacionalidad</th>
+                <td>{{ $autor->nacionalidad }}</td>
+            </tr>
+        </tbody>
     </table>
-</body>
-</html>
+
+    <a href="{{ route('autores.index') }}" class="btn btn-secondary mt-3">Volver a la lista</a>
+@endsection
