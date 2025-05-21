@@ -13,7 +13,7 @@ class AutorController extends Controller
     public function index()
     {
         //Mostrar lista de autores
-        $autores=Autor::get();
+        $autores=Autor::all();
         return view('autores.index',compact('autores'));
     }
 
@@ -22,12 +22,7 @@ class AutorController extends Controller
      */
     public function create()
     {
-        //Crear nuevo autor
-        $autor= new Autor();
-        $autor->codigo_autor="AUT500";
-        $autor->nombre_autor="prueba insert";
-        $autor->nacionalidad="Salvadoreño";
-        $autor->save();
+          return view('autores.create');
     }
 
     /**
@@ -35,7 +30,8 @@ class AutorController extends Controller
      */
     public function store(Request $request)
     {
-        //metodo a ejecutar con los datos del nuevo autor
+        Autor::create($request->validated());
+        return redirect()->route('autores.index')->with('success', 'Autor creado correctamente.');
     }
 
     /**
@@ -54,9 +50,8 @@ class AutorController extends Controller
     public function edit($codigo)
     {
         //
-        $autor=Autor::find($codigo);
-        $autor->nacionalidad="Colombiano";
-        $autor->save();
+         $autor = Autor::findOrFail($codigo);
+        return view('autores.edit', compact('autor'));
     }
 
     /**
@@ -65,6 +60,9 @@ class AutorController extends Controller
     public function update(Request $request, Autor $autor)
     {
         //
+        $autor = Autor::findOrFail($codigo);
+        $autor->update($request->validated());
+        return redirect()->route('autores.index')->with('success', 'Autor actualizado correctamente.');
     }
 
     /**
@@ -73,5 +71,8 @@ class AutorController extends Controller
     public function destroy(Autor $autor)
     {
         //
+         $autor = Autor::find($codigo);
+        $autor->delete();
+        return redirect()->route('autores.index')->with('success', 'Autor eliminado.');
     }
 }
